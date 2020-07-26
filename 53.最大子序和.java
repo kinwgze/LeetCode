@@ -8,6 +8,8 @@
 由于我们不需要保留 dp 状态，故可以优化空间复杂度为 1，
 即 dp = nums[i] + (dp > 0 ? dp : 0);
 */
+
+//动态规划一
 class Solution {
     public int maxSubArray(int[] nums) {
         int len = nums.length, dp = nums[0], max = dp;
@@ -18,6 +20,35 @@ class Solution {
         return max;
     }
 }
+
+/***************************************************************/
+
+//动态规划二
+/*
+动态规划的是首先对数组进行遍历，当前最大连续子序列和为 sum，结果为 ans
+如果 sum > 0，则说明 sum 对结果有增益效果，则 sum 保留并加上当前遍历数字
+如果 sum <= 0，则说明 sum 对结果无增益效果，需要舍弃，则 sum 直接更新为当前遍历数字
+每次比较 sum 和 ans的大小，将最大值置为ans，遍历结束返回结果
+时间复杂度：O(n)
+*/
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int ans = nums[0];
+        int sum = 0;
+        for(int num: nums) {
+            if(sum > 0) {
+                sum += num;
+            } else {
+                sum = num;
+            }
+            ans = Math.max(ans, sum);
+        }
+        return ans;
+    }
+}
+
+/***************************************************************/
 
 //进阶算法：分治法
 /*
@@ -50,6 +81,7 @@ class Solution {
         return Math.max(Math.max(leftAns, rightAns), leftMax + rightMax);
     }
 }
+/***************************************************************/
 
 //错误的方案：滑动窗口法
 class Solution {
