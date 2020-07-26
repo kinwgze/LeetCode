@@ -19,8 +19,39 @@ class Solution {
     }
 }
 
+//进阶算法：分治法
+/*
+所谓分治就是把问题分割成更小的，最后再合并即可，
+我们把 nums 一分为二先，那么就有两种情况，
+一种最大序列包括中间的值，一种就是不包括，也就是在左边或者右边；
+当最大序列在中间的时候那我们就把它两侧的最大和算出即可；当在两侧的话就继续分治即可。
+*/
+class Solution {
+    public int maxSubArray(int[] nums) {
+        return helper(nums, 0, nums.length - 1);
+    }
 
-//滑动窗口法
+    private int helper(int[] nums, int left, int right) {
+        if (left >= right) return nums[left];
+        int mid = (left + right) >> 1;
+        int leftAns = helper(nums, left, mid);
+        int rightAns = helper(nums, mid + 1, right);
+        int leftMax = nums[mid], rightMax = nums[mid + 1];
+        int temp = 0;
+        for (int i = mid; i >= left; --i) {
+            temp += nums[i];
+            if (temp > leftMax) leftMax = temp;
+        }
+        temp = 0;
+        for (int i = mid + 1; i <= right; ++i) {
+            temp += nums[i];
+            if (temp > rightMax) rightMax = temp;
+        }
+        return Math.max(Math.max(leftAns, rightAns), leftMax + rightMax);
+    }
+}
+
+//错误的方案：滑动窗口法
 class Solution {
     public int maxSubArray(int[] nums) {
         int max = nums[0];
