@@ -1,7 +1,7 @@
 //搜索插入，首先考虑的是二分法。但是一开始二分法的写法忘记了。考虑到只有小数据，准备用循环来做。
 //但是没考虑边界条件，外加一开始看错了题目。以为除了输出索引外，还要插入到表中，导致代码冗长，
 
-//正确解法，二分法，只输出索引
+//正确解法一，二分法，只输出索引
 
 class Solution {
     public int searchInsert(int[] nums, int target) {
@@ -34,6 +34,23 @@ left+(right-left)/2 等价于 (left+right)/2  防止溢出
 所以 mid = (left + right) >> 1 防止溢出，且运算速度快。
 */
 
+
+//正确解法二：不使用ans变量。标准的二分法
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = ((right - left) >> 1) + left;
+            if (target > nums[mid]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+}
 
 
 //错误解法：
