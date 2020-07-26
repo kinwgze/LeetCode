@@ -25,6 +25,15 @@ class Solution {
 //初值设置为数组长度可以省略边界条件的判断，因为存在一种情况是 target 大于数组中的所有数，
 //此时需要插入到数组长度的位置。
 
+/*
+注：mid = (left + right) >> 1,运算结果正好能对应一个整数的二分之一值，
+这就正好能代替数学上的除2运算，但是比除2运算要快。
+mid=(left+right)>>1相当于mid=(left+right)/2
+
+left+(right-left)/2 等价于 (left+right)/2  防止溢出
+所以 mid = (left + right) >> 1 防止溢出，且运算速度快。
+*/
+
 
 
 //错误解法：
