@@ -86,3 +86,30 @@ class Solution {
 Tips：
 对于这种简单的栈操作，使用数组模拟的时候要比直接使用栈代码简洁易懂。且时间短
 */
+/*
+注：Java中栈的操作
+1. 实例化
+Stack stack = new Stack();
+
+2. 进栈
+stack.push(Object); //返回的是入栈的内容
+stack.add(Object); //返回的是true或者是false
+
+3. 出栈
+stack.pop(); //输出并删除栈顶元素
+stack.peek(); //输出但是不删除栈顶元素
+
+4. 判断是否为空
+stack.isEmpty(); 
+stack.empty(); //这两个的用法和返回值都是一样的。
+//Stack 继承了 类 java.util.Vector 中的方法，Stack中的empty()函数会调用vector中的size()函数，
+//再判断是否为空，但是两者的用法都是一样的
+
+5. 输出栈
+System.out.print(stack);
+
+6. 查看某元素在栈中的位置，计数从1开始
+int index = stack.search("a");
+
+
+*/
