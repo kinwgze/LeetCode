@@ -25,4 +25,12 @@ class Solution {
 }
 
 
+//方法三：牛顿迭代法
+//https://leetcode-cn.com/problems/sqrtx/solution/x-de-ping-fang-gen-by-leetcode-solution/
+
+
+
+
+//二分查找是个比较合适的方法，看了下评论，慎用第一种方法
+
 //多动脑子，不要天天暴力查找，暴力循环，动脑子！！
