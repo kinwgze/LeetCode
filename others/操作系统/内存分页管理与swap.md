@@ -60,7 +60,7 @@ swap字面意思是交换，指硬盘上一块分区或者文件。
 ```shell
 root@ubuntu:~# swapon -s
 Filename				Type		Size	Used	Priority
-/swapfile               file    	1942896	0	    -2
+/swapfile                              	file    	1942896	0	-2
 ```
 
 ### 2、swap作用
