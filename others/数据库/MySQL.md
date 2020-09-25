@@ -543,9 +543,10 @@
     ```
 
 
-​    		
 ​    	2. 数据库设计的范式
-​    		* 概念：设计数据库时，需要遵循的一些规范。要遵循后边的范式要求，必须先遵循前边的所有范式要求
+
+```
+    		* 概念：设计数据库时，需要遵循的一些规范。要遵循后边的范式要求，必须先遵循前边的所有范式要求
 ​    	
 ​    			设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。
 ​    			目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。
@@ -568,6 +569,10 @@
 ​    						* 非主属性：除过码属性组的属性
 ​    						
     			3. 第三范式（3NF）：在2NF基础上，任何非主属性不依赖于其它非主属性（在2NF基础上消除传递依赖）
+```
+
+
+
 
 
     ## 数据库的备份和还原
@@ -586,6 +591,7 @@
 
 ### 查询语法：
 
+```sql
 select
 	列名列表
 from
@@ -593,6 +599,7 @@ from
 where....
 
 ### 准备sql
+```
 
 ```sql
 创建部门表
@@ -720,10 +727,16 @@ WHERE
 	-- 2 查询员工信息，并且工资等于9000的
 	SELECT * FROM emp WHERE emp.`salary` = 9000;
 	
--- 一条sql就完成这个操作。子查询
-	SELECT * FROM emp WHERE emp.`salary` = (SELECT MAX(salary) FROM emp);
 	```
-	
+
+-- 一条sql就完成这个操作。子查询
+
+```sql
+	SELECT * FROM emp WHERE emp.`salary` = (SELECT MAX(salary) FROM emp);
+```
+
+​	
+
 * **子查询不同情况**
 	
 	1. 子查询的结果是单行单列的：
@@ -737,8 +750,8 @@ WHERE
 		  ```sql
 		  -- 查询'财务部'和'市场部'所有的员工信息
 		  SELECT id FROM dept WHERE NAME = '财务部' OR NAME = '市场部';
-	  SELECT * FROM emp WHERE dept_id = 3 OR dept_id = 2;
-	  -- 子查询
+	    SELECT * FROM emp WHERE dept_id = 3 OR dept_id = 2;
+	    -- 子查询
 		  SELECT * FROM emp WHERE dept_id IN (SELECT id FROM dept WHERE NAME = '财务部' OR NAME = '市场部');
 		  ```
 		
