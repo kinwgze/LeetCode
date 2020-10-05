@@ -697,11 +697,11 @@ WHERE
 ![figure](./figures/左外连接.png)
 
 ```sql
-	* 语法：select 字段列表 from 表1 left [outer] join 表2 on 条件；
-	* 查询的是左表所有数据以及其交集部分。
-	* 例子：
-		-- 查询所有员工信息，如果员工有部门，则查询部门名称，没有部门，则不显示部门名称
-		SELECT 	t1.*,t2.`name` FROM emp t1 LEFT JOIN dept t2 ON t1.`dept_id` = t2.`id`;
+* 语法：select 字段列表 from 表1 left [outer] join 表2 on 条件；
+* 查询的是左表所有数据以及其交集部分。
+* 例子：
+	-- 查询所有员工信息，如果员工有部门，则查询部门名称，没有部门，则不显示部门名称
+	SELECT 	t1.*,t2.`name` FROM emp t1 LEFT JOIN dept t2 ON t1.`dept_id` = t2.`id`;
 ```
 
 ####  右外连接：
@@ -709,10 +709,10 @@ WHERE
 ![figure](./figures/右外连接.png)
 
 ```sql
-	* 语法：select 字段列表 from 表1 right [outer] join 表2 on 条件；
-	* 查询的是右表所有数据以及其交集部分。
-	* 例子：
-		SELECT 	* FROM dept t2 RIGHT JOIN emp t1 ON t1.`dept_id` = t2.`id`;
+* 语法：select 字段列表 from 表1 right [outer] join 表2 on 条件；
+* 查询的是右表所有数据以及其交集部分。
+* 例子：
+	SELECT 	* FROM dept t2 RIGHT JOIN emp t1 ON t1.`dept_id` = t2.`id`;
 ```
 
 #### 子查询
@@ -726,7 +726,6 @@ WHERE
 	
 	-- 2 查询员工信息，并且工资等于9000的
 	SELECT * FROM emp WHERE emp.`salary` = 9000;
-	
 	```
 
 -- 一条sql就完成这个操作。子查询
